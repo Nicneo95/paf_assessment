@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Fund Transfer</h1>
+    <!-- from action leave blank for now -->
+    <form action="/transfer" method="POST">
+      <label for="account">From account:</label>
+      <select name="from" id="account">
+        <option value="">-- Select an account --</option>
+        <option
+          th:each="accountName : ${accountNames}"
+          th:value="${accountName}"
+          th:text="${accountName}"
+        ></option>
+      </select>
+      <br />
+      <br />
+      <label for="account">To account:</label>
+      <select name="to" id="account">
+        <option value="">-- Select an account --</option>
+        <option
+          th:each="accountName : ${accountNames}"
+          th:value="${accountName}"
+          th:text="${accountName}"
+        ></option>
+      </select>
+      <br />
+      <br />
+      <label>Amount: </label>
+      <input type="text" name="amount" />
+      <br />
+      <br />
+      <label>Comments: </label>
+      <textarea name="comments" placeholder="Type here"></textarea>
+      <br /><br />
+      <input type="submit" value="Transfer" />
+      <br />
+      <br />
+      <textarea name="error" placeholder="Error message print here" rows="4" cols="50"></textarea>
+    </form>
+  </body>
+</html>
